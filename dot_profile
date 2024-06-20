@@ -28,4 +28,3 @@ fi
 
 # Created by `pipx` on 2024-06-07 01:52:19
 export PATH="$PATH:/home/grayson/.local/bin"
-. "$HOME/.cargo/env"

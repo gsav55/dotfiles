@@ -126,5 +126,4 @@ export PATH="$PATH:/home/grayson/.local/bin"
 
 eval "$(register-python-argcomplete pipx)"
 if [ -f "/home/grayson/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/grayson/.config/fabric/fabric-bootstrap.inc"; fi
-. "$HOME/.cargo/env"
 eval "$(starship init bash)"
