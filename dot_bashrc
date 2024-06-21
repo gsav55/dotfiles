@@ -72,33 +72,35 @@ xterm*|rxvt*)
     ;;
 esac
 
+# if system has lsd use that
+if [[ -x $(which lsd) ]]; then 
+    alias ls="lsd"
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias sudo='sudo -E '
-    alias brc='nvim ~/.bashrc'
-    alias resource='source ~/.bashrc'
-    alias ls='lsd --color=auto'
-    alias lg='lazygit'
-    #alias ls='ls --color=auto'
+
+    # ls rice
+    alias ls='ls --color=auto'
     alias la='ls -a --color=auto'
     alias ll='ls -l --color=auto'
-    alias grab='sudo apt install'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
+    # grep rice
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+else
+    # colored GCC warnings and errors
+    #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+    # some more ls aliases
+    alias ll='ls -l'
+    alias la='ls -A'
+    alias l='ls -CF'
 fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -121,10 +123,10 @@ if ! shopt -oq posix; then
 fi
 
 # Created by `pipx` on 2024-06-07 01:52:19
-export PATH="$PATH:/home/grayson/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 
 eval "$(register-python-argcomplete pipx)"
-if [ -f "/home/grayson/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/grayson/.config/fabric/fabric-bootstrap.inc"; fi
+if [ -f "$HOME/.config/fabric/fabric-bootstrap.inc" ]; then . "$HOME/.config/fabric/fabric-bootstrap.inc"; fi
 if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
 eval "$(starship init bash)"

@@ -1,0 +1,9 @@
+# software
+if [[ -x $(which nvim) ]]; then alias vim="nvim"; fi
+
+# general
+alias sudo='sudo -E '
+alias brc='vim ~/.bashrc'
+alias resource='source ~/.bashrc'
+alias grab='sudo apt install'
+alias lg='lazygit'
