@@ -128,8 +128,17 @@ fi
 # Created by `pipx` on 2024-06-07 01:52:19
 export PATH="$PATH:$HOME/.local/bin"
 
+# Check if other software is installed and add them to PATH.
+if [ -f /usr/bin/pyenv ]; then 
+    if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+    fi
+fi
 
 eval "$(register-python-argcomplete pipx)"
+
 if [ -f "$HOME/.config/fabric/fabric-bootstrap.inc" ]; then . "$HOME/.config/fabric/fabric-bootstrap.inc"; fi
+
 if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
+
 eval "$(starship init bash)"
