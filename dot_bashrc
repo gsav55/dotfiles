@@ -135,6 +135,12 @@ if [ -f /usr/bin/pyenv ]; then
     fi
 fi
 
+if [ -f $HOME/.pyenv ]; then
+    export PATH = "$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 eval "$(register-python-argcomplete pipx)"
 
 if [ -f "$HOME/.config/fabric/fabric-bootstrap.inc" ]; then . "$HOME/.config/fabric/fabric-bootstrap.inc"; fi
