@@ -135,7 +135,7 @@ if [ -f /usr/bin/pyenv ]; then
     fi
 fi
 
-if [ -f $HOME/.pyenv ]; then
+if [ -f "$HOME/.pyenv" ]; then
     export PATH = "$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
