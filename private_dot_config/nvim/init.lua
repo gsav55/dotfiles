@@ -225,11 +225,17 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  --  spec = {
-  --    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-  --    { import = "lazyvim.plugins.extras.lang.python" },
-  --    { import = "plugins" },
-  --  },
+  spec = {
+    { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+    { import = 'lazyvim.plugins.extras.lang.python' },
+    { import = 'lazyvim.plugins.extras.lang.clang' },
+    { import = 'lazyvim.plugins.extras.lang.cmake' },
+    { import = 'lazyvim.plugins.extras.lang.markdown' },
+    { import = 'lazyvim.plugins.extras.lang.docker' },
+    { import = 'lazyvim.plugins.extras.lang.toml' },
+    { import = 'lazyvim.plugins.extras.dap.core' },
+    { import = 'plugins' },
+  },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
